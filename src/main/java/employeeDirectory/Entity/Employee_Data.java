@@ -1,19 +1,37 @@
 package employeeDirectory.Entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "employee_detail")
 public class Employee_Data {
-    
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 
 	private String designation;
 	private String Department;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "emp_id")
+	private EmpDetails empdetails;
+
+	public EmpDetails getEmpdetails() {
+		return empdetails;
+	}
+
+	public void setEmpdetails(EmpDetails empdetails) {
+		this.empdetails = empdetails;
+	}
 
 	private double salary;
 
@@ -60,7 +78,7 @@ public class Employee_Data {
 	@Override
 	public String toString() {
 		return "Employee_Data [id=" + id + ", name=" + name + ", designation=" + designation + ", Department="
-				+ Department + ", salary=" + salary + "]";
+				+ Department + ", empdetails=" + empdetails + ", salary=" + salary + "]";
 	}
 
 }

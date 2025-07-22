@@ -8,9 +8,8 @@ import employeeDirectory.Entity.Employee_Data;
 import employeeDirectory.Utility.employeeDirectoryUtility;
 
 public class SearchByName {
-
 		
-		public void SearchName() {
+		public static void main(String[] args) {
 		//1/session factory
 		SessionFactory factory = employeeDirectoryUtility.getSessionFactory();
 		
@@ -21,7 +20,7 @@ public class SearchByName {
 		Transaction transaction = session.beginTransaction();
 		
 		// 4.write your logic here
-		Employee_Data st = session.find(Employee_Data.class, 302);
+		Employee_Data st = session.find(Employee_Data.class, 2);
 		System.out.println(st.toString());
 		
 		 // 5.pass to database

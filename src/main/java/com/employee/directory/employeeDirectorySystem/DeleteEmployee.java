@@ -9,18 +9,21 @@ import employeeDirectory.Utility.employeeDirectoryUtility;
 
 public class DeleteEmployee {
 		
-		public void DeleteDetails() {
-SessionFactory factory = employeeDirectoryUtility.getSessionFactory();
+		public static void main(String[] args) {
+		
+		SessionFactory factory = employeeDirectoryUtility.getSessionFactory();
 		
 		Session session = factory.openSession();
 		
 		Transaction transaction = session.beginTransaction();
 		
-		Employee_Data st = session.find(Employee_Data.class, 301);
+		Employee_Data st = session.find(Employee_Data.class, 4);
+		
 		session.remove(st);
 		
 		transaction.commit();
 		session.close();
+		System.out.println("Data deleted");
 
 	}
 
