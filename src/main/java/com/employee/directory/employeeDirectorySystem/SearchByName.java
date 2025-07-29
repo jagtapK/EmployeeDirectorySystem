@@ -9,7 +9,7 @@ import employeeDirectory.Utility.employeeDirectoryUtility;
 
 public class SearchByName {
 		
-		public static void main(String[] args) {
+		public void SearchName(){
 		//1/session factory
 		SessionFactory factory = employeeDirectoryUtility.getSessionFactory();
 		
