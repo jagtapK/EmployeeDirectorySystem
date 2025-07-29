@@ -1,5 +1,7 @@
 package com.employee.directory.employeeDirectorySystem;
 
+import java.util.Scanner;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,7 +11,7 @@ import employeeDirectory.Utility.employeeDirectoryUtility;
 
 public class DeleteEmployee {
 		
-		public static void main(String[] args) {
+		public void DeleteDetails() {
 		
 		SessionFactory factory = employeeDirectoryUtility.getSessionFactory();
 		
@@ -17,7 +19,11 @@ public class DeleteEmployee {
 		
 		Transaction transaction = session.beginTransaction();
 		
-		Employee_Data st = session.find(Employee_Data.class, 4);
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Product Id");
+		int id = sc.nextInt();
+		
+		Employee_Data st = session.find(Employee_Data.class, id);
 		
 		session.remove(st);
 		

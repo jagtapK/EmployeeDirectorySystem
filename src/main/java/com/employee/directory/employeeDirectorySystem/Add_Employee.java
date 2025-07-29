@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import employeeDirectory.Entity.EmpDetails;
 import employeeDirectory.Entity.Employee_Data;
 import employeeDirectory.Utility.employeeDirectoryUtility;
 
@@ -39,13 +38,16 @@ public class Add_Employee {
 
 		System.out.println("Enter Employee Department: ");
 		s.setDepartment(sc.nextLine());
+		
 		System.out.println("Enter Employee Salary: ");
 		s.setSalary(sc.nextInt());
 
 		// 4.save process
 		session.persist(s);
 
-		System.out.println("Updated Successfully " + s); // 5.pass to database
+		//System.out.println("Updated Successfully " + s); // 5.pass to database
 		transaction.commit();
+		session.close();
+		
 	}
 }
