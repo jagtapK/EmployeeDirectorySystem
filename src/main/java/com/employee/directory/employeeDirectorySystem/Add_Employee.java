@@ -43,7 +43,7 @@ public class Add_Employee {
 		s.setSalary(sc.nextInt());
 
 		// 4.save process
-		session.persist(s);
+		session.merge(s);
 
 		//System.out.println("Updated Successfully " + s); // 5.pass to database
 		transaction.commit();

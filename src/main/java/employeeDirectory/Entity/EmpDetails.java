@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class EmpDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@Override
